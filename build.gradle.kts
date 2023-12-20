@@ -9,15 +9,22 @@ plugins {
 }
 
 subprojects {
+    !project.pluginManager.hasPlugin("java-platform") || return@subprojects
     apply {
         plugin("pub.ihub.plugin.ihub-java")
         plugin("pub.ihub.plugin.ihub-test")
         plugin("pub.ihub.plugin.ihub-verification")
     }
 
-    dependencies {
-        "testImplementation"("org.springframework.boot:spring-boot-starter-test")
+    iHubBom {
+        importBoms {
+            group("pub.ihub.lib").module("ihub-dependencies").version("main-SNAPSHOT")
+        }
     }
+
+//    dependencies {
+//        "testImplementation"("org.springframework.boot:spring-boot-starter-test")
+//    }
 }
 
 iHubGitHooks {
