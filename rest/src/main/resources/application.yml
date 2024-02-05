@@ -1,4 +1,8 @@
-spring:
-  cloud:
-    compatibility-verifier:
-      enabled: false
+#spring:
+#  cloud:
+#    compatibility-verifier:
+#      enabled: false
+#spring.application.name: sample-spring-modulith
+server.port: 18080
+management.tracing.sampling.probability: 1.0
+management.endpoints.web.exposure.include: "*"
